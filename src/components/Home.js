@@ -10838,6 +10838,7 @@ const Home = () => {
     "ñutos",
     "ñuzco",
   ];
+  let [colorTeclado] = useState({q:"", w:"",e:"",r:"",t:"",y:"",u:"",i:"",o:"",p:"",a:"",s:"",d:"",f:"",g:"",h:"",j:"",k:"",l:"",ñ:"",z:"",x:"",c:"",v:"",b:"",n:"",m:""})
   let [palabra] = useState(palabras[Math.floor(Math.random() * 10836)]);
   let [x, setx] = useState([]);
   let [estado, setEstado] = useState({
@@ -10942,7 +10943,7 @@ const Home = () => {
       estado.primerintento === false &&
       palabras.includes(intentos.primerintento.join("")) === true
     ) {
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 5; i++) { 
         if (correcto[i] === intentos.primerintento[i]) {
           color1[i] = "green flip-enter";
         } else if (
@@ -11174,66 +11175,66 @@ const Home = () => {
       </div>
       <div className="teclado">
         <div id="fila1" className="">
-          <button onClick={handleChange} value={"q"}>
+          <button className={colorTeclado.q} onClick={handleChange} value={"q"}>
             Q
           </button>
-          <button onClick={handleChange} value={"w"}>
+          <button className={colorTeclado.w} onClick={handleChange} value={"w"}>
             W
           </button>
-          <button onClick={handleChange} value={"e"}>
+          <button className={colorTeclado.e} onClick={handleChange} value={"e"}>
             E
           </button>
-          <button onClick={handleChange} value={"r"}>
+          <button className={colorTeclado.r} onClick={handleChange} value={"r"}>
             R
           </button>
-          <button onClick={handleChange} value={"t"}>
+          <button className={colorTeclado.t} onClick={handleChange} value={"t"}>
             T
           </button>
-          <button onClick={handleChange} value={"y"}>
+          <button className={colorTeclado.y} onClick={handleChange} value={"y"}>
             Y
           </button>
-          <button onClick={handleChange} value={"u"}>
+          <button className={colorTeclado.u} onClick={handleChange} value={"u"}>
             U
           </button>
-          <button onClick={handleChange} value={"i"}>
+          <button className={colorTeclado.i} onClick={handleChange} value={"i"}>
             I
           </button>
-          <button onClick={handleChange} value={"o"}>
+          <button className={colorTeclado.o} onClick={handleChange} value={"o"}>
             O
           </button>
-          <button onClick={handleChange} value={"p"}>
+          <button className={colorTeclado.p} onClick={handleChange} value={"p"}>
             P
           </button>
         </div>
         <div id="fila2">
-          <button onClick={handleChange} value={"a"}>
+          <button className={colorTeclado.a} onClick={handleChange} value={"a"}>
             A
           </button>
-          <button onClick={handleChange} value={"s"}>
+          <button className={colorTeclado.s} onClick={handleChange} value={"s"}>
             S
           </button>
-          <button onClick={handleChange} value={"d"}>
+          <button className={colorTeclado.d} onClick={handleChange} value={"d"}>
             D
           </button>
-          <button onClick={handleChange} value={"f"}>
+          <button className={colorTeclado.f} onClick={handleChange} value={"f"}>
             F
           </button>
-          <button onClick={handleChange} value={"g"}>
+          <button className={colorTeclado.g} onClick={handleChange} value={"g"}>
             G
           </button>
-          <button onClick={handleChange} value={"h"}>
+          <button className={colorTeclado.h} onClick={handleChange} value={"h"}>
             H
           </button>
-          <button onClick={handleChange} value={"j"}>
+          <button className={colorTeclado.j} onClick={handleChange} value={"j"}>
             J
           </button>
-          <button onClick={handleChange} value={"k"}>
+          <button className={colorTeclado.k} onClick={handleChange} value={"k"}>
             K
           </button>
-          <button onClick={handleChange} value={"l"}>
+          <button className={colorTeclado.l} onClick={handleChange} value={"l"}>
             L
           </button>
-          <button onClick={handleChange} value={"ñ"}>
+          <button className={colorTeclado.ñ} onClick={handleChange} value={"ñ"}>
             Ñ
           </button>
         </div>
@@ -11241,25 +11242,25 @@ const Home = () => {
           <button className="grande" onClick={enter}>
             Enter
           </button>
-          <button onClick={handleChange} value={"z"}>
+          <button className={colorTeclado.z} onClick={handleChange} value={"z"}>
             Z
           </button>
-          <button onClick={handleChange} value={"x"}>
+          <button className={colorTeclado.x} onClick={handleChange} value={"x"}>
             X
           </button>
-          <button onClick={handleChange} value={"c"}>
+          <button className={colorTeclado.c} onClick={handleChange} value={"c"}>
             C
           </button>
-          <button onClick={handleChange} value={"v"}>
+          <button className={colorTeclado.v} onClick={handleChange} value={"v"}>
             V
           </button>
-          <button onClick={handleChange} value={"b"}>
+          <button className={colorTeclado.b} onClick={handleChange} value={"b"}>
             B
           </button>
-          <button onClick={handleChange} value={"n"}>
+          <button className={colorTeclado.n} onClick={handleChange} value={"n"}>
             N
           </button>
-          <button onClick={handleChange} value={"m"}>
+          <button className={colorTeclado.m} onClick={handleChange} value={"m"}>
             M
           </button>
           <button className="grande" onClick={borrar}>
