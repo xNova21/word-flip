@@ -10836,9 +10836,9 @@ const Home = () => {
     "ñurdo",
     "ñutas",
     "ñutos",
-    "ñuzco"
-]
-  let [palabra] = useState(palabras[Math.floor(Math.random() * (10836))]);
+    "ñuzco",
+  ];
+  let [palabra] = useState(palabras[Math.floor(Math.random() * 10836)]);
   let [x, setx] = useState([]);
   let [estado, setEstado] = useState({
     primerintento: false,
@@ -10905,32 +10905,43 @@ const Home = () => {
   let [color6] = useState({});
   let borrar = () => {
     x.splice(x.length - 1, 1);
-    if(estado.primerintento === false){
-      setIntentos({...intentos, primerintento: x });
+    if (estado.primerintento === false) {
+      setIntentos({ ...intentos, primerintento: x });
+    } else if (
+      estado.primerintento === true &&
+      estado.segundointento === false
+    ) {
+      setIntentos({ ...intentos, segundointento: x });
+    } else if (
+      estado.segundointento === true &&
+      estado.tercerintento === false
+    ) {
+      setIntentos({ ...intentos, tercerintento: x });
+    } else if (
+      estado.tercerintento === true &&
+      estado.cuartointento === false
+    ) {
+      setIntentos({ ...intentos, cuartointento: x });
+    } else if (
+      estado.cuartointento === true &&
+      estado.quintointento === false
+    ) {
+      setIntentos({ ...intentos, quintointento: x });
+    } else if (estado.quintointento === true && estado.sextointento === false) {
+      setIntentos({ ...intentos, sextointento: x });
     }
-    else if(estado.primerintento === true &&  estado.segundointento === false){
-      setIntentos({...intentos, segundointento: x });
-    }
-    else if(estado.segundointento === true &&  estado.tercerintento === false){
-      setIntentos({...intentos, tercerintento: x });
-    }
-    else if(estado.tercerintento === true &&  estado.cuartointento === false){
-      setIntentos({...intentos, cuartointento: x });
-    }
-    else if(estado.cuartointento === true &&  estado.quintointento === false){
-      setIntentos({...intentos, quintointento: x });
-    }
-    else if(estado.quintointento === true &&  estado.sextointento === false){
-      setIntentos({...intentos, sextointento: x });
-    }
-    
   };
   let enter = () => {
-    if(x.length === 5){
+    
+    if (x.length === 5 && palabras.includes(x.join("")) === true) {
       setx([]);
     }
     let correcto = palabra.split("");
-    if (intentos.primerintento.length === 5 && estado.primerintento === false) {
+    if (
+      intentos.primerintento.length === 5 &&
+      estado.primerintento === false &&
+      palabras.includes(intentos.primerintento.join("")) === true
+    ) {
       for (let i = 0; i < 5; i++) {
         if (correcto[i] === intentos.primerintento[i]) {
           color1[i] = "green flip-enter";
@@ -10950,7 +10961,8 @@ const Home = () => {
     } else if (
       intentos.segundointento.length === 5 &&
       estado.primerintento === true &&
-      estado.segundointento === false
+      estado.segundointento === false &&
+      palabras.includes(intentos.segundointento.join("")) === true
     ) {
       for (let i = 0; i < 5; i++) {
         if (correcto[i] === intentos.segundointento[i]) {
@@ -10970,7 +10982,8 @@ const Home = () => {
     } else if (
       intentos.tercerintento.length === 5 &&
       estado.segundointento === true &&
-      estado.tercerintento === false
+      estado.tercerintento === false &&
+      palabras.includes(intentos.tercerintento.join("")) === true
     ) {
       for (let i = 0; i < 5; i++) {
         if (correcto[i] === intentos.tercerintento[i]) {
@@ -10990,14 +11003,15 @@ const Home = () => {
     } else if (
       intentos.cuartointento.length === 5 &&
       estado.tercerintento === true &&
-      estado.cuartointento === false
+      estado.cuartointento === false &&
+      palabras.includes(intentos.cuartointento.join("")) === true
     ) {
       for (let i = 0; i < 5; i++) {
         if (correcto[i] === intentos.cuartointento[i]) {
           color4[i] = "green flip-enter";
         } else if (
-          correcto[i] !== intentos.tercerintento[i] &&
-          palabra.includes(intentos.tercerintento[i])
+          correcto[i] !== intentos.cuartointento[i] &&
+          palabra.includes(intentos.cuartointento[i])
         ) {
           color4[i] = "yellow flip-enter";
         } else {
@@ -11010,7 +11024,8 @@ const Home = () => {
     } else if (
       intentos.quintointento.length === 5 &&
       estado.cuartointento === true &&
-      estado.quintointento === false
+      estado.quintointento === false &&
+      palabras.includes(intentos.quintointento.join("")) === true
     ) {
       for (let i = 0; i < 5; i++) {
         if (correcto[i] === intentos.quintointento[i]) {
@@ -11030,7 +11045,8 @@ const Home = () => {
     } else if (
       intentos.sextointento.length === 5 &&
       estado.quintointento === true &&
-      estado.sextointento === false
+      estado.sextointento === false &&
+      palabras.includes(intentos.sextointento.join("")) === true
     ) {
       for (let i = 0; i < 5; i++) {
         if (correcto[i] === intentos.sextointento[i]) {
