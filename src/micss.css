@@ -1,6 +1,15 @@
 .red{
 background: red;
 }
+.green{
+  background: green;
+  }
+.yellow{
+  background: yellow;
+}
+.grey{
+  background: grey;
+}
 .flip-enter, .flip-leave {
     transform: rotateY(360deg);
     transition: all 3s ease;
