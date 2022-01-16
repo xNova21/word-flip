@@ -8,12 +8,14 @@ const Home = () => {
       x.push(e.target.value);
       setIntentos({ primerintento: x });
     }
-
-    // console.log(e.target.value)
   };
+  let borrar = () =>{
+    x.splice(x.length-1, 1)
+    setIntentos({ primerintento: x })
+  }
   return (
     <div className="container">
-      {console.log(x)}
+      {/* {console.log(x)} */}
       <div className="grid">
         <div id="primero" className="rows">
           <div className="cuadro flip">{intentos.primerintento[0]}</div>
@@ -51,25 +53,25 @@ const Home = () => {
           <div className="cuadro">25</div>
         </div>
         <div id="sexto" className="rows">
+          <div className="cuadro">26</div>
+          <div className="cuadro">27</div>
+          <div className="cuadro">28</div>
+          <div className="cuadro">29</div>
           <div className="cuadro">30</div>
-          <div className="cuadro">31</div>
-          <div className="cuadro">32</div>
-          <div className="cuadro">33</div>
-          <div className="cuadro">34</div>
         </div>
       </div>
       <div className="teclado">
         <div id="fila1" className="">
-          <button>Q</button>
-          <button>W</button>
-          <button>E</button>
-          <button>R</button>
-          <button>T</button>
-          <button>Y</button>
-          <button>U</button>
-          <button>I</button>
-          <button>O</button>
-          <button>P</button>
+          <button onClick={handleChange} value={"q"}>Q</button>
+          <button onClick={handleChange} value={"w"}>W</button>
+          <button onClick={handleChange} value={"e"}>E</button>
+          <button onClick={handleChange} value={"r"}>R</button>
+          <button onClick={handleChange} value={"t"}>T</button>
+          <button onClick={handleChange} value={"y"}>Y</button>
+          <button onClick={handleChange} value={"u"}>U</button>
+          <button onClick={handleChange} value={"i"}>I</button>
+          <button onClick={handleChange} value={"o"}>O</button>
+          <button onClick={handleChange} value={"p"}>P</button>
         </div>
         <div id="fila2">
           <button onClick={handleChange} value={"a"}>
@@ -78,25 +80,25 @@ const Home = () => {
           <button onClick={handleChange} value={"s"}>
             S
           </button>
-          <button>D</button>
-          <button>F</button>
-          <button>G</button>
-          <button>H</button>
-          <button>J</button>
-          <button>K</button>
-          <button>L</button>
-          <button>Ñ</button>
+          <button onClick={handleChange} value={"d"}>D</button>
+          <button onClick={handleChange} value={"f"}>F</button>
+          <button onClick={handleChange} value={"g"}>G</button>
+          <button onClick={handleChange} value={"h"}>H</button>
+          <button onClick={handleChange} value={"j"}>J</button>
+          <button onClick={handleChange} value={"k"}>K</button>
+          <button onClick={handleChange} value={"l"}>L</button>
+          <button onClick={handleChange} value={"ñ"}>Ñ</button>
         </div>
         <div id="fila3">
           <button className="grande">Enter</button>
-          <button>Z</button>
-          <button>X</button>
-          <button>C</button>
-          <button>V</button>
-          <button>B</button>
-          <button>N</button>
-          <button>M</button>
-          <button className="grande">Del</button>
+          <button onClick={handleChange} value={"z"}>Z</button>
+          <button onClick={handleChange} value={"x"}>X</button>
+          <button onClick={handleChange} value={"c"}>C</button>
+          <button onClick={handleChange} value={"v"}>V</button>
+          <button onClick={handleChange} value={"b"}>B</button>
+          <button onClick={handleChange} value={"n"}>N</button>
+          <button onClick={handleChange} value={"m"}>M</button>
+          <button className="grande" onClick={borrar}>Del</button>
         </div>
       </div>
     </div>
