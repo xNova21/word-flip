@@ -163,10 +163,10 @@ const Home = () => {
         color6[2] === color6[3] &&
         color6[3] === color6[4])
     ) {
-      setAcertar(true);
+      
       setMensaje({ mensaje: "¡Correcto!", color: "correcto" });
     }
-    if (estado.sextointento === true && acertar !== true) {
+    else if (estado.sextointento === true && acertar !== true) {
       setAcertar(false);
       setMensaje({
         mensaje: `¡Lástima! La palabra correcta era ${palabra}.`,
@@ -497,6 +497,11 @@ const Home = () => {
   };
   useEffect(() => {
     comprobar();
+   if(mensaje.mensaje === "¡Correcto"){
+    setTimeout(() => {
+      setAcertar(true)
+    }, 3000);
+   }
   }, [estado]);
   let [instruciones, setInstrucciones] = useState(true);
   let cerrarinst = () => {
@@ -566,7 +571,7 @@ const Home = () => {
     <div>
       {console.log(palabra)}
 
-      {acertar ? (
+      {acertar === true || acertar === false ? (
         <div className="container ">
           <h1 className={mensaje.color}>{mensaje.mensaje}</h1>
           <button className="jugar" onClick={nuevaPartida}>
