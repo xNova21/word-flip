@@ -1,73 +1,87 @@
-.red{
-background: red;
-}
-.green{
-  background: green;
-  color: white;
-  }
-.yellow{
-  background: rgb(179, 179, 26);
-  color: white;
-}
-.grey{
-  background: grey;
-  color: white;
 
+.flip-enter,
+.flip-leave {
+  transform: rotateY(360deg);
+  transition: all 3s ease;
 }
-.flip-enter, .flip-leave {
-    transform: rotateY(360deg);
-    transition: all 3s ease;
-  }
 .cuadro {
   width: 50px;
   height: 50px;
-  border: 1px solid black;
+  border: 2px solid grey;
   align-items: center;
   justify-content: center;
-  align-content: center;
   text-align: center;
-  line-height: 50px;
 }
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 auto;
-    
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+.flex {
+  display: flex;
+}
+.flex button {
+  height: fit-content;
+}
+.instrucciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  margin: 20px;
 }
 .grid {
   display: grid;
+  align-self: center;
+  margin-bottom: 10px;
   padding: 0.75rem;
   gap: 0.25rem;
-  grid-template-rows: repeat(6, minmax(0,1fr));
-  max-width: 350px;
-  width: 100%;
+  grid-template-rows: repeat(6, minmax(0, 1fr));
+  max-width: 300px;
+  width: 30%;
   max-height: 420px;
   height: 100%;
   position: relative;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2rem;
-
 }
-.rows{
-    gap: 0.25rem;
-    grid-template-columns: repeat(5, minmax(0,1fr));
-    width: 80%;
-    display: grid;
+.rows {
+  gap: 0.25rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  width: 100%;
+  display: grid;
 }
-.teclado{
+.teclado {
   display: grid;
   flex-direction: column;
   grid-gap: 10px;
-
 }
-.teclado button{
+.teclado button {
+  border: none;
+  background: rgb(228, 216, 216);
   width: 50px;
   margin-left: 5px;
-  height: 30px;
+  height: 50px;
+
 }
-.grande{
-  width: 75px !important;
+.grande {
+  width: 77px !important;
+}
+.red {
+  background: red;
+}
+.green {
+  background: green !important;
+  color: white;
+}
+.yellow {
+  background: rgb(179, 179, 26) !important;
+  color: white;
+}
+.grey {
+  background: grey !important;
+  color: white;
 }
