@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import palabras from "./Palabras";
+import Instrucciones from "./Instrucciones";
 const Home = () => {
   let [acertar, setAcertar] = useState();
   let [colorTeclado] = useState({
@@ -501,7 +502,6 @@ const Home = () => {
   let abririnst = () => {
     setInstrucciones(true);
   };
-
    return (<div>
     
       {instruciones === false ? ( 
@@ -820,8 +820,14 @@ const Home = () => {
           </div>
       ) 
       : (
-        <div className="instrucciones"><div className="flex"><button onClick={cerrarinst}>x</button><h1>CÓMO JUGAR</h1></div>
-        </div>
+        // <div className="instrucciones"><div className="flex"><button onClick={cerrarinst}>x</button><h1>CÓMO JUGAR</h1></div>
+        // </div>
+        <div className="container">
+        <button onClick={cerrarinst}>x</button>
+        <h1>CÓMO JUGAR</h1>
+        <Instrucciones/>
+        <button className="jugar" onClick={cerrarinst}>¡Jugar!</button></div>
+        
       )}
     
     </div>

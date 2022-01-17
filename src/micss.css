@@ -1,4 +1,3 @@
-
 .flip-enter,
 .flip-leave {
   transform: rotateY(360deg);
@@ -18,6 +17,7 @@
   justify-content: center;
   align-items: center;
   flex: 1 1 auto;
+  margin: 20px;
 }
 .flex {
   display: flex;
@@ -25,13 +25,7 @@
 .flex button {
   height: fit-content;
 }
-.instrucciones {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 auto;
-  margin: 20px;
-}
+
 .grid {
   display: grid;
   align-self: center;
@@ -65,7 +59,6 @@
   width: 50px;
   margin-left: 5px;
   height: 50px;
-
 }
 .grande {
   width: 77px !important;
@@ -76,12 +69,33 @@
 .green {
   background: green !important;
   color: white;
+  border: green solid 2px;
 }
 .yellow {
   background: rgb(179, 179, 26) !important;
   color: white;
+  border: rgb(179, 179, 26) solid 2px;
 }
 .grey {
   background: grey !important;
   color: white;
+}
+.instrucciones {
+  border: green solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+}
+p{
+  font-size: 1rem !important;
+  text-transform: none !important;
+  margin: 10px
+
+}
+.jugar{
+  background: green;
+  font-size: 2rem;
+  color: white;
+  padding: 10px;
 }
