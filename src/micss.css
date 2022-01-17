@@ -81,7 +81,6 @@
   color: white;
 }
 .instrucciones {
-  border: green solid 1px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,4 +97,13 @@ p{
   font-size: 2rem;
   color: white;
   padding: 10px;
+}
+h1{
+  border-bottom: grey solid 5px;
+  margin-bottom: 50px;
+}
+.correcto{
+  position: absolute ;
+  background: green;
+  font-size: 3rem;
 }

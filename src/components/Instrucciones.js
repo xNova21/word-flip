@@ -36,7 +36,7 @@ const Instrucciones = () => {
         <div className={`cuadro`}>A</div>
         <div className={`cuadro`}>S</div>
         <div className={`cuadro  ${color3}`}>O</div>
-        <div className={`cuadro`}>O</div>
+        <div className={`cuadro`}>S</div>
       </div>
       <p>La letra O no está en la palabra.</p>
       <p>Puede haber letras repetidas.</p>

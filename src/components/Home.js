@@ -1,8 +1,9 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import palabras from "./Palabras";
 import Instrucciones from "./Instrucciones";
 const Home = () => {
   let [acertar, setAcertar] = useState();
+  let [mensaje, setMensaje] = useState({mensaje: "", color: ""})
   let [colorTeclado] = useState({
     q: "",
     w: "",
@@ -161,17 +162,14 @@ const Home = () => {
         color6[3] === color6[4])
     ) {
       setAcertar(true);
+      setMensaje({mensaje: "¡Correcto!", color: "correcto"})
       console.log("correcto");
-    } else if (color6[4] &&
-      color6[0] !== "green flip-enter" &&
-      color6[1] !== "green flip-enter" &&
-      color6[2] !== "green flip-enter" &&
-      color6[3] !== "green flip-enter" &&
-      color6[4] !== "green flip-enter"
+    } if (estado.sextointento === true && acertar !== true
     ) {
       setAcertar(false);
-      console.log("fallo");
-    }
+      setMensaje({mensaje: "¡Lástima!, prueba de nuevo.", color: "fallo"})
+      console.log("fallo")}
+    
   };
   let enter = () => {
     if (x.length === 5 && palabras.includes(x.join("")) === true) {
@@ -493,8 +491,9 @@ const Home = () => {
         console.log("no hay suficientes letras");
       }
     }
-    comprobar();
+    
   };
+  useEffect(()=>{comprobar()}, [estado])
   let [instruciones, setInstrucciones] = useState(true);
   let cerrarinst = () =>{
     setInstrucciones(false)
@@ -502,14 +501,15 @@ const Home = () => {
   let abririnst = () => {
     setInstrucciones(true);
   };
-   return (<div>
+   return (<div>{console.log(palabra)}
     
       {instruciones === false ? ( 
         <div className="container">
+          <div className={mensaje.color}>{mensaje.mensaje}</div>
           <button onClick={abririnst} className="instrucciones">
             ?
           </button>
-
+          <h1>WORDLE INFINITE (ES)</h1>
           <div className="grid">
             <div id="primero" className="rows">
               <div className={`cuadro ${color1[0]}`}>
@@ -820,8 +820,6 @@ const Home = () => {
           </div>
       ) 
       : (
-        // <div className="instrucciones"><div className="flex"><button onClick={cerrarinst}>x</button><h1>CÓMO JUGAR</h1></div>
-        // </div>
         <div className="container">
         <button onClick={cerrarinst}>x</button>
         <h1>CÓMO JUGAR</h1>
