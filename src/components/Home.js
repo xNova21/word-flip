@@ -3,8 +3,8 @@ import palabras from "./Palabras";
 import Instrucciones from "./Instrucciones";
 const Home = () => {
   let [acertar, setAcertar] = useState();
-  let [mensaje, setMensaje] = useState({mensaje: "", color: ""})
-  let [colorTeclado] = useState({
+  let [mensaje, setMensaje] = useState({ mensaje: "", color: "" });
+  let [colorTeclado, setTeclado] = useState({
     q: "",
     w: "",
     e: "",
@@ -33,7 +33,9 @@ const Home = () => {
     n: "",
     m: "",
   });
-  let [palabra] = useState(palabras[Math.floor(Math.random() * 10836)]);
+  let [palabra, setPalabra] = useState(
+    palabras[Math.floor(Math.random() * 10836)]
+  );
   let correcto = palabra.split("");
   let [x, setx] = useState([]);
   let [estado, setEstado] = useState({
@@ -93,12 +95,12 @@ const Home = () => {
       setIntentos({ ...intentos, sextointento: x });
     }
   };
-  let [color1] = useState({});
-  let [color2] = useState({});
-  let [color3] = useState({});
-  let [color4] = useState({});
-  let [color5] = useState({});
-  let [color6] = useState({});
+  let [color1, set1] = useState({});
+  let [color2, set2] = useState({});
+  let [color3, set3] = useState({});
+  let [color4, set4] = useState({});
+  let [color5, set5] = useState({});
+  let [color6, set6] = useState({});
   let borrar = () => {
     x.splice(x.length - 1, 1);
     if (estado.primerintento === false) {
@@ -162,14 +164,15 @@ const Home = () => {
         color6[3] === color6[4])
     ) {
       setAcertar(true);
-      setMensaje({mensaje: "¡Correcto!", color: "correcto"})
-      console.log("correcto");
-    } if (estado.sextointento === true && acertar !== true
-    ) {
+      setMensaje({ mensaje: "¡Correcto!", color: "correcto" });
+    }
+    if (estado.sextointento === true && acertar !== true) {
       setAcertar(false);
-      setMensaje({mensaje: "¡Lástima!, prueba de nuevo.", color: "fallo"})
-      console.log("fallo")}
-    
+      setMensaje({
+        mensaje: `¡Lástima! La palabra correcta era ${palabra}.`,
+        color: "fallo",
+      });
+    }
   };
   let enter = () => {
     if (x.length === 5 && palabras.includes(x.join("")) === true) {
@@ -241,8 +244,8 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
-          if(!color2[i]){
-            color2[i] = "yellow flip-enter"
+          if (!color2[i]) {
+            color2[i] = "yellow flip-enter";
           }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
@@ -294,8 +297,8 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
-          if(!color3[i]){
-            color3[i] = "yellow flip-enter"
+          if (!color3[i]) {
+            color3[i] = "yellow flip-enter";
           }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
@@ -348,8 +351,8 @@ const Home = () => {
         }
         for (let i = 0; i < 5; i++) {
           let repetido = false;
-          if(!color4[i]){
-            color4[i] = "yellow flip-enter"
+          if (!color4[i]) {
+            color4[i] = "yellow flip-enter";
           }
           for (let j = 0; j < 5; j++) {
             if (
@@ -400,8 +403,8 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
-          if(!color5[i]){
-            color5[i] = "yellow flip-enter"
+          if (!color5[i]) {
+            color5[i] = "yellow flip-enter";
           }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
@@ -453,8 +456,8 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
-          if(!color6[i]){
-            color6[i] = "yellow flip-enter"
+          if (!color6[i]) {
+            color6[i] = "yellow flip-enter";
           }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
@@ -491,21 +494,87 @@ const Home = () => {
         console.log("no hay suficientes letras");
       }
     }
-    
   };
-  useEffect(()=>{comprobar()}, [estado])
+  useEffect(() => {
+    comprobar();
+  }, [estado]);
   let [instruciones, setInstrucciones] = useState(true);
-  let cerrarinst = () =>{
-    setInstrucciones(false)
-  }
+  let cerrarinst = () => {
+    setInstrucciones(false);
+  };
   let abririnst = () => {
     setInstrucciones(true);
   };
-   return (<div>{console.log(palabra)}
-    
-      {instruciones === false ? ( 
+  let nuevaPartida = () => {
+    set1({});
+    set2({});
+    set3({});
+    set4({});
+    set5({});
+    set6({});
+    setEstado({
+      primerintento: false,
+      segundointento: false,
+      tercerintento: false,
+      cuartointento: false,
+      quintointento: false,
+      sextointento: false,
+    });
+    setIntentos({
+      primerintento: "",
+      segundointento: "",
+      tercerintento: "",
+      cuartointento: "",
+      quintointento: "",
+      sextointento: "",
+    });
+    setTeclado({
+      q: "",
+      w: "",
+      e: "",
+      r: "",
+      t: "",
+      y: "",
+      u: "",
+      i: "",
+      o: "",
+      p: "",
+      a: "",
+      s: "",
+      d: "",
+      f: "",
+      g: "",
+      h: "",
+      j: "",
+      k: "",
+      l: "",
+      ñ: "",
+      z: "",
+      x: "",
+      c: "",
+      v: "",
+      b: "",
+      n: "",
+      m: "",
+    });
+    setAcertar();
+    setMensaje({ mensaje: "", color: "" });
+    setPalabra(palabras[Math.floor(Math.random() * 10836)]);
+    console.log("new game");
+  };
+  return (
+    <div>
+      {console.log(palabra)}
+
+      {acertar ? (
+        <div className="container ">
+          <h1 className={mensaje.color}>{mensaje.mensaje}</h1>
+          <button className="jugar" onClick={nuevaPartida}>
+            Otra partida
+          </button>
+        </div>
+      ) : instruciones === false ? (
         <div className="container">
-          <div className={mensaje.color}>{mensaje.mensaje}</div>
           <button onClick={abririnst} className="instrucciones">
             ?
           </button>
@@ -817,17 +886,17 @@ const Home = () => {
               </button>
             </div>
           </div>
-          </div>
-      ) 
-      : (
+        </div>
+      ) : (
         <div className="container">
-        <button onClick={cerrarinst}>x</button>
-        <h1>CÓMO JUGAR</h1>
-        <Instrucciones/>
-        <button className="jugar" onClick={cerrarinst}>¡Jugar!</button></div>
-        
+          <button onClick={cerrarinst}>x</button>
+          <h1>CÓMO JUGAR</h1>
+          <Instrucciones />
+          <button className="jugar" onClick={cerrarinst}>
+            ¡Jugar!
+          </button>
+        </div>
       )}
-    
     </div>
   );
 };
