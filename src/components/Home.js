@@ -31,6 +31,7 @@ const Home = () => {
     m: "",
   });
   let [palabra] = useState(palabras[Math.floor(Math.random() * 10836)]);
+  let correcto = palabra.split("");
   let [x, setx] = useState([]);
   let [estado, setEstado] = useState({
     primerintento: false,
@@ -123,150 +124,432 @@ const Home = () => {
       setIntentos({ ...intentos, sextointento: x });
     }
   };
+  // let enter = () => {
+  //   if (x.length === 5 && palabras.includes(x.join("")) === true) {
+  //   setx([]);
+  //   let correcto = palabra.split("");
+  //   if (estado.primerintento === false && palabras.includes(intentos.primerintento.join("")) === true) {
+  //     for (let i = 0; i < 5; i++) {
+  //       if (correcto[i] === intentos.primerintento[i]) {
+  //         color1[i] = "green flip-enter";
+  //           colorTeclado[correcto[i]] = "green flip-enter";
+  //       } else if (
+  //         correcto[i] !== intentos.primerintento[i] &&
+  //         palabra.includes(intentos.primerintento[i]) === true
+  //       ) {
+  //         color1[i] = "yellow flip-enter ";
+  //         if (colorTeclado[correcto[i]] === "") {
+  //           colorTeclado[correcto[i]] = "yellow flip-enter";
+  //         }
+  //       }
+  //       else if(correcto[i] !== intentos.primerintento[i] &&
+  //         palabra.includes(intentos.primerintento[i]) === false){
+  //         color1[i] = "grey flip-enter";
+  //         colorTeclado[correcto[i]] = "grey flip-enter"
+  //       }
+  //     }
+
+  //     if (color1[4] !== "") {
+  //       setEstado({ ...estado, primerintento: true });
+  //     }
+  //   } else if (
+  //     intentos.segundointento.length === 5 &&
+  //     estado.primerintento === true &&
+  //     estado.segundointento === false &&
+  //     palabras.includes(intentos.segundointento.join("")) === true
+  //   ) {
+  //     for (let i = 0; i < 5; i++) {
+  //       if (correcto[i] === intentos.segundointento[i]) {
+  //         color2[i] = "green flip-enter";
+  //       } else if (
+  //         correcto[i] !== intentos.segundointento[i] &&
+  //         palabra.includes(intentos.segundointento[i])
+  //       ) {
+  //         color2[i] = "yellow flip-enter";
+  //       } else {
+  //         color2[i] = "grey flip-enter";
+  //       }
+  //     }
+  //     if (color2[4] !== "") {
+  //       setEstado({ ...estado, segundointento: true });
+  //     }
+  //   } else if (
+  //     intentos.tercerintento.length === 5 &&
+  //     estado.segundointento === true &&
+  //     estado.tercerintento === false &&
+  //     palabras.includes(intentos.tercerintento.join("")) === true
+  //   ) {
+  //     for (let i = 0; i < 5; i++) {
+  //       if (correcto[i] === intentos.tercerintento[i]) {
+  //         color3[i] = "green flip-enter";
+  //       } else if (
+  //         correcto[i] !== intentos.tercerintento[i] &&
+  //         palabra.includes(intentos.tercerintento[i])
+  //       ) {
+  //         color3[i] = "yellow flip-enter";
+  //       } else {
+  //         color3[i] = "grey flip-enter";
+  //       }
+  //     }
+  //     if (color3[4] !== "") {
+  //       setEstado({ ...estado, tercerintento: true });
+  //     }
+  //   } else if (
+  //     intentos.cuartointento.length === 5 &&
+  //     estado.tercerintento === true &&
+  //     estado.cuartointento === false &&
+  //     palabras.includes(intentos.cuartointento.join("")) === true
+  //   ) {
+  //     for (let i = 0; i < 5; i++) {
+  //       if (correcto[i] === intentos.cuartointento[i]) {
+  //         color4[i] = "green flip-enter";
+  //       } else if (
+  //         correcto[i] !== intentos.cuartointento[i] &&
+  //         palabra.includes(intentos.cuartointento[i])
+  //       ) {
+  //         color4[i] = "yellow flip-enter";
+  //       } else {
+  //         color4[i] = "grey flip-enter";
+  //       }
+  //     }
+  //     if (color4[4] !== "") {
+  //       setEstado({ ...estado, cuartointento: true });
+  //     }
+  //   } else if (
+  //     intentos.quintointento.length === 5 &&
+  //     estado.cuartointento === true &&
+  //     estado.quintointento === false &&
+  //     palabras.includes(intentos.quintointento.join("")) === true
+  //   ) {
+  //     for (let i = 0; i < 5; i++) {
+  //       if (correcto[i] === intentos.quintointento[i]) {
+  //         color5[i] = "green flip-enter";
+  //       } else if (
+  //         correcto[i] !== intentos.quintointento[i] &&
+  //         palabra.includes(intentos.quintointento[i])
+  //       ) {
+  //         color5[i] = "yellow flip-enter";
+  //       } else {
+  //         color5[i] = "grey flip-enter";
+  //       }
+  //     }
+  //     if (color5[4] !== "") {
+  //       setEstado({ ...estado, quintointento: true });
+  //     }
+  //   } else if (
+  //     intentos.sextointento.length === 5 &&
+  //     estado.quintointento === true &&
+  //     estado.sextointento === false &&
+  //     palabras.includes(intentos.sextointento.join("")) === true
+  //   ) {
+  //     for (let i = 0; i < 5; i++) {
+  //       if (correcto[i] === intentos.sextointento[i]) {
+  //         color6[i] = "green flip-enter";
+  //       } else if (
+  //         correcto[i] !== intentos.sextointento[i] &&
+  //         palabra.includes(intentos.sextointento[i])
+  //       ) {
+  //         color6[i] = "yellow flip-enter";
+  //       } else {
+  //         color6[i] = "grey flip-enter";
+  //       }
+  //     }
+  //     if (color6[4] !== "") {
+  //       setEstado({ ...estado, sextointento: true });
+  //     }
+  //   }}
+  // };
   let enter = () => {
+    // console.log(correcto.indexOf(x[1]));
     if (x.length === 5 && palabras.includes(x.join("")) === true) {
-      setx([]);
-    }
-
-    let correcto = palabra.split("");
-    if (
-      intentos.primerintento.length === 5 &&
-      estado.primerintento === false &&
-      palabras.includes(intentos.primerintento.join("")) === true
-    ) {
-      for (let i = 0; i < 5; i++) {
-        if (correcto[i] === intentos.primerintento[i]) {
-          color1[i] = "green flip-enter";
-          if (colorTeclado[correcto[i]] === "") {
-            colorTeclado[correcto[i]] = "green flip-enter";
-          }
-        } else if (
-          correcto[i] !== intentos.primerintento[i] &&
-          palabra.includes(intentos.primerintento[i])
-        ) {
-          color1[i] = "yellow flip-enter ";
-          if (colorTeclado[correcto[i]] === "") {
-            colorTeclado[correcto[i]] = "yellow flip-enter";
-          }
-        } else if(colorTeclado[correcto[i]] !== ""){color1[i] = "grey flip-enter"}
-        else {
-          color1[i] = "grey flip-enter";
-          if (
-            colorTeclado[correcto[i]] === "" &&
-            palabra.includes(intentos.primerintento[i] === false)
+      if (estado.primerintento === false) {
+        for (let i = 0; i < 5; i++) {
+          if (intentos.primerintento[i] === correcto[i]) {
+            colorTeclado[intentos.primerintento[i]] = "green flip-enter";  
+              color1[i] = "green flip-enter";
+          } else if (
+            intentos.primerintento[i] !== correcto[i] &&
+            correcto.includes(intentos.primerintento[i]) &&
+            colorTeclado[intentos.primerintento[i]] !== "green flip-enter"
           ) {
-            colorTeclado[correcto[i]] = "grey flip-enter";
+            colorTeclado[intentos.primerintento[i]] = "yellow flip-enter";
+            color1[i] = "yellow flip-enter";
+          } else if (correcto.includes(intentos.primerintento[i]) === false) {
+            colorTeclado[intentos.primerintento[i]] = "grey flip-enter";
+            color1[i] = "grey flip-enter"
           }
         }
-      }
-
-      if (color1[4] !== "") {
-        setEstado({ ...estado, primerintento: true });
-      }
-    } else if (
-      intentos.segundointento.length === 5 &&
-      estado.primerintento === true &&
-      estado.segundointento === false &&
-      palabras.includes(intentos.segundointento.join("")) === true
-    ) {
-      for (let i = 0; i < 5; i++) {
-        if (correcto[i] === intentos.segundointento[i]) {
-          color2[i] = "green flip-enter";
-        } else if (
-          correcto[i] !== intentos.segundointento[i] &&
-          palabra.includes(intentos.segundointento[i])
-        ) {
-          color2[i] = "yellow flip-enter";
-        } else {
-          color2[i] = "grey flip-enter";
+        for (let i = 0; i < 5; i++) {
+          let repetido = false;
+          for (let j = 0; j < 5; j++) {
+            if (
+              intentos.primerintento[i] === intentos.primerintento[j] &&
+              i !== j
+            ) {
+              repetido = true;
+              if (repetido === true) {
+                if (
+                  (color1[i] === "green flip-enter" &&
+                    color1[j] !== "green flip-enter") ||
+                  (color1[i] === "yellow flip-enter" &&
+                    color1[j] !== "green flip-enter")
+                ) {
+                  color1[j] = "grey flip-enter";
+                } else if (
+                  (color1[j] === "green flip-enter" &&
+                    color1[i] !== "green flip-enter") ||
+                  (color1[j] === "yellow flip-enter" &&
+                    color1[i] !== "green flip-enter")
+                ) {
+                  color1[i] = "grey flip-enter";
+                }
+              }
+            }
+          }
+        }
+        setx([]);
+        setEstado({...estado, primerintento: true})
+        console.log("intento1 correcto");
+      } 
+      else if(estado.primerintento === true && estado.segundointento === false){
+      for(let i=0; i<5; i++){
+        if(intentos.segundointento[i] === correcto[i]){
+          colorTeclado[intentos.segundointento[i]] = "green flip-enter"
+          color2[i] = "green flip-enter"
+        }
+        else if(intentos.segundointento[i] !== correcto[i] &&
+          correcto.includes(intentos.segundointento[i]) &&
+          colorTeclado[intentos.segundointento[i]] !== "green flip-enter"){
+            colorTeclado[intentos.segundointento[i]] = "yellow flip-enter"
+            color2[i] = "yellow flip-enter"
+        }
+        else if(correcto.includes(intentos.segundointento[i]) === false){
+          colorTeclado[intentos.segundointento[i]] = "grey flip-enter";
+          color2[i] = "grey flip-enter"
         }
       }
-      if (color2[4] !== "") {
-        setEstado({ ...estado, segundointento: true });
-      }
-    } else if (
-      intentos.tercerintento.length === 5 &&
-      estado.segundointento === true &&
-      estado.tercerintento === false &&
-      palabras.includes(intentos.tercerintento.join("")) === true
-    ) {
-      for (let i = 0; i < 5; i++) {
-        if (correcto[i] === intentos.tercerintento[i]) {
-          color3[i] = "green flip-enter";
-        } else if (
-          correcto[i] !== intentos.tercerintento[i] &&
-          palabra.includes(intentos.tercerintento[i])
-        ) {
-          color3[i] = "yellow flip-enter";
-        } else {
-          color3[i] = "grey flip-enter";
+      for(let i=0; i<5; i++){
+        let repetido = false;
+        for(let j=0; j<5; j++){
+          if(intentos.segundointento[i] === intentos.segundointento[j] &&
+            i !== j){
+              repetido = true;
+              if(repetido === true){
+                if (
+                  (color2[i] === "green flip-enter" &&
+                    color2[j] !== "green flip-enter") ||
+                  (color2[i] === "yellow flip-enter" &&
+                    color2[j] !== "green flip-enter")
+                ) {
+                  color2[j] = "grey flip-enter";
+                } else if (
+                  (color2[j] === "green flip-enter" &&
+                    color2[i] !== "green flip-enter") ||
+                  (color2[j] === "yellow flip-enter" &&
+                    color2[i] !== "green flip-enter")
+                ) {
+                  color2[i] = "grey flip-enter";
+                }
+              }
+            }
+            
         }
       }
-      if (color3[4] !== "") {
-        setEstado({ ...estado, tercerintento: true });
+      setx([]);
+      setEstado({...estado, segundointento: true})
       }
-    } else if (
-      intentos.cuartointento.length === 5 &&
-      estado.tercerintento === true &&
-      estado.cuartointento === false &&
-      palabras.includes(intentos.cuartointento.join("")) === true
-    ) {
-      for (let i = 0; i < 5; i++) {
-        if (correcto[i] === intentos.cuartointento[i]) {
-          color4[i] = "green flip-enter";
-        } else if (
-          correcto[i] !== intentos.cuartointento[i] &&
-          palabra.includes(intentos.cuartointento[i])
-        ) {
-          color4[i] = "yellow flip-enter";
-        } else {
-          color4[i] = "grey flip-enter";
+      else if(estado.segundointento === true && estado.tercerintento === false){
+        for(let i=0; i<5; i++){
+          if(intentos.tercerintento[i] === correcto[i]){
+            colorTeclado[intentos.tercerintento[i]] = "green flip-enter"
+            color3[i] = "green flip-enter"
+          }
+          else if(intentos.tercerintento[i] !== correcto[i] &&
+            correcto.includes(intentos.tercerintento[i]) &&
+            colorTeclado[intentos.tercerintento[i]] !== "green flip-enter"){
+              colorTeclado[intentos.tercerintento[i]] = "yellow flip-enter"
+              color3[i] = "yellow flip-enter"
+          }
+          else if(correcto.includes(intentos.tercerintento[i]) === false){
+            colorTeclado[intentos.tercerintento[i]] = "grey flip-enter";
+            color3[i] = "grey flip-enter"
+          }
         }
-      }
-      if (color4[4] !== "") {
-        setEstado({ ...estado, cuartointento: true });
-      }
-    } else if (
-      intentos.quintointento.length === 5 &&
-      estado.cuartointento === true &&
-      estado.quintointento === false &&
-      palabras.includes(intentos.quintointento.join("")) === true
-    ) {
-      for (let i = 0; i < 5; i++) {
-        if (correcto[i] === intentos.quintointento[i]) {
-          color5[i] = "green flip-enter";
-        } else if (
-          correcto[i] !== intentos.quintointento[i] &&
-          palabra.includes(intentos.quintointento[i])
-        ) {
-          color5[i] = "yellow flip-enter";
-        } else {
-          color5[i] = "grey flip-enter";
+        for(let i=0; i<5; i++){
+          let repetido = false;
+          for(let j=0; j<5; j++){
+            if(intentos.tercerintento[i] === intentos.tercerintento[j] &&
+              i !== j){
+                repetido = true;
+                if(repetido === true){
+                  if (
+                    (color3[i] === "green flip-enter" &&
+                      color3[j] !== "green flip-enter") ||
+                    (color3[i] === "yellow flip-enter" &&
+                      color3[j] !== "green flip-enter")
+                  ) {
+                    color3[j] = "grey flip-enter";
+                  } else if (
+                    (color3[j] === "green flip-enter" &&
+                      color3[i] !== "green flip-enter") ||
+                    (color3[j] === "yellow flip-enter" &&
+                      color3[i] !== "green flip-enter")
+                  ) {
+                    color3[i] = "grey flip-enter";
+                  }
+                }
+              }
+              
+          }
         }
-      }
-      if (color5[4] !== "") {
-        setEstado({ ...estado, quintointento: true });
-      }
-    } else if (
-      intentos.sextointento.length === 5 &&
-      estado.quintointento === true &&
-      estado.sextointento === false &&
-      palabras.includes(intentos.sextointento.join("")) === true
-    ) {
-      for (let i = 0; i < 5; i++) {
-        if (correcto[i] === intentos.sextointento[i]) {
-          color6[i] = "green flip-enter";
-        } else if (
-          correcto[i] !== intentos.sextointento[i] &&
-          palabra.includes(intentos.sextointento[i])
-        ) {
-          color6[i] = "yellow flip-enter";
-        } else {
-          color6[i] = "grey flip-enter";
+        setx([]);
+        setEstado({...estado, tercerintento: true})
         }
-      }
-      if (color6[4] !== "") {
-        setEstado({ ...estado, sextointento: true });
+        else if(estado.tercerintento === true && estado.cuartointento === false){
+          for(let i=0; i<5; i++){
+            if(intentos.cuartointento[i] === correcto[i]){
+              colorTeclado[intentos.cuartointento[i]] = "green flip-enter"
+              color4[i] = "green flip-enter"
+            }
+            else if(intentos.cuartointento[i] !== correcto[i] &&
+              correcto.includes(intentos.cuartointento[i]) &&
+              colorTeclado[intentos.cuartointento[i]] !== "green flip-enter"){
+                colorTeclado[intentos.cuartointento[i]] = "yellow flip-enter"
+                color4[i] = "yellow flip-enter"
+            }
+            else if(correcto.includes(intentos.cuartointento[i]) === false){
+              colorTeclado[intentos.cuartointento[i]] = "grey flip-enter";
+              color4[i] = "grey flip-enter"
+            }
+          }
+          for(let i=0; i<5; i++){
+            let repetido = false;
+            for(let j=0; j<5; j++){
+              if(intentos.cuartointento[i] === intentos.cuartointento[j] &&
+                i !== j){
+                  repetido = true;
+                  if(repetido === true){
+                    if (
+                      (color4[i] === "green flip-enter" &&
+                        color4[j] !== "green flip-enter") ||
+                      (color4[i] === "yellow flip-enter" &&
+                        color4[j] !== "green flip-enter")
+                    ) {
+                      color4[j] = "grey flip-enter";
+                    } else if (
+                      (color4[j] === "green flip-enter" &&
+                        color4[i] !== "green flip-enter") ||
+                      (color4[j] === "yellow flip-enter" &&
+                        color4[i] !== "green flip-enter")
+                    ) {
+                      color4[i] = "grey flip-enter";
+                    }
+                  }
+                }
+                
+            }
+          }
+          setx([]);
+          setEstado({...estado, cuartointento: true})
+          }
+          else if(estado.cuartointento === true && estado.quintointento === false){
+            for(let i=0; i<5; i++){
+              if(intentos.quintointento[i] === correcto[i]){
+                colorTeclado[intentos.quintointento[i]] = "green flip-enter"
+                color5[i] = "green flip-enter"
+              }
+              else if(intentos.quintointento[i] !== correcto[i] &&
+                correcto.includes(intentos.quintointento[i]) &&
+                colorTeclado[intentos.quintointento[i]] !== "green flip-enter"){
+                  colorTeclado[intentos.quintointento[i]] = "yellow flip-enter"
+                  color5[i] = "yellow flip-enter"
+              }
+              else if(correcto.includes(intentos.quintointento[i]) === false){
+                colorTeclado[intentos.quintointento[i]] = "grey flip-enter";
+                color5[i] = "grey flip-enter"
+              }
+            }
+            for(let i=0; i<5; i++){
+              let repetido = false;
+              for(let j=0; j<5; j++){
+                if(intentos.quintointento[i] === intentos.quintointento[j] &&
+                  i !== j){
+                    repetido = true;
+                    if(repetido === true){
+                      if (
+                        (color5[i] === "green flip-enter" &&
+                          color5[j] !== "green flip-enter") ||
+                        (color5[i] === "yellow flip-enter" &&
+                          color5[j] !== "green flip-enter")
+                      ) {
+                        color5[j] = "grey flip-enter";
+                      } else if (
+                        (color5[j] === "green flip-enter" &&
+                          color5[i] !== "green flip-enter") ||
+                        (color5[j] === "yellow flip-enter" &&
+                          color5[i] !== "green flip-enter")
+                      ) {
+                        color5[i] = "grey flip-enter";
+                      }
+                    }
+                  }
+                  
+              }
+            }
+            setx([]);
+            setEstado({...estado, quintointento: true})
+            }
+            else if(estado.quintointento === true && estado.sextointento === false){
+              for(let i=0; i<5; i++){
+                if(intentos.sextointento[i] === correcto[i]){
+                  colorTeclado[intentos.sextointento[i]] = "green flip-enter"
+                  color6[i] = "green flip-enter"
+                }
+                else if(intentos.sextointento[i] !== correcto[i] &&
+                  correcto.includes(intentos.sextointento[i]) &&
+                  colorTeclado[intentos.sextointento[i]] !== "green flip-enter"){
+                    colorTeclado[intentos.sextointento[i]] = "yellow flip-enter"
+                    color6[i] = "yellow flip-enter"
+                }
+                else if(correcto.includes(intentos.sextointento[i]) === false){
+                  colorTeclado[intentos.sextointento[i]] = "grey flip-enter";
+                  color6[i] = "grey flip-enter"
+                }
+              }
+              for(let i=0; i<5; i++){
+                let repetido = false;
+                for(let j=0; j<5; j++){
+                  if(intentos.sextointento[i] === intentos.sextointento[j] &&
+                    i !== j){
+                      repetido = true;
+                      if(repetido === true){
+                        if (
+                          (color6[i] === "green flip-enter" &&
+                            color6[j] !== "green flip-enter") ||
+                          (color6[i] === "yellow flip-enter" &&
+                            color6[j] !== "green flip-enter")
+                        ) {
+                          color6[j] = "grey flip-enter";
+                        } else if (
+                          (color6[j] === "green flip-enter" &&
+                            color6[i] !== "green flip-enter") ||
+                          (color6[j] === "yellow flip-enter" &&
+                            color6[i] !== "green flip-enter")
+                        ) {
+                          color6[i] = "grey flip-enter";
+                        }
+                      }
+                    }
+                    
+                }
+              }
+              setx([]);
+              setEstado({...estado, sextointento: true})
+              }
+      else if (x.length === 5 && palabras.includes(x.join("")) === false) {
+        console.log("no existe la palabra");
+      } else {
+        console.log("no hay suficientes letras");
       }
     }
   };

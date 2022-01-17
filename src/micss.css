@@ -11,6 +11,8 @@ background: red;
 }
 .grey{
   background: grey;
+  color: white;
+
 }
 .flip-enter, .flip-leave {
     transform: rotateY(360deg);
@@ -32,6 +34,7 @@ background: red;
     justify-content: center;
     align-items: center;
     flex: 1 1 auto;
+    
 }
 .grid {
   display: grid;
@@ -43,6 +46,10 @@ background: red;
   max-height: 420px;
   height: 100%;
   position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
+
 }
 .rows{
     gap: 0.25rem;
