@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import palabras from "./Palabras";
-import Navbar from "./Navbar";
 const Home = () => {
   let [acertar, setAcertar] = useState();
   let [colorTeclado] = useState({
@@ -243,6 +242,9 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
+          if(!color2[i]){
+            color2[i] = "yellow flip-enter"
+          }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
             if (
@@ -293,6 +295,9 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
+          if(!color3[i]){
+            color3[i] = "yellow flip-enter"
+          }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
             if (
@@ -344,6 +349,9 @@ const Home = () => {
         }
         for (let i = 0; i < 5; i++) {
           let repetido = false;
+          if(!color4[i]){
+            color4[i] = "yellow flip-enter"
+          }
           for (let j = 0; j < 5; j++) {
             if (
               intentos.cuartointento[i] === intentos.cuartointento[j] &&
@@ -393,6 +401,9 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
+          if(!color5[i]){
+            color5[i] = "yellow flip-enter"
+          }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
             if (
@@ -443,6 +454,9 @@ const Home = () => {
           }
         }
         for (let i = 0; i < 5; i++) {
+          if(!color6[i]){
+            color6[i] = "yellow flip-enter"
+          }
           let repetido = false;
           for (let j = 0; j < 5; j++) {
             if (
