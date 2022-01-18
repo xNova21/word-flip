@@ -70,17 +70,32 @@
   background: red;
 }
 .green {
-  background: green !important;
+  background: green ;
   color: white;
   border: green solid 2px;
 }
+.teclado .green {
+  background: green;
+  color: white;
+  border: green solid 2px;
+}
+
+.teclado .yellow {
+  background: rgb(179, 179, 26);
+  color: white;
+  border: rgb(179, 179, 26) solid 2px;
+}
 .yellow {
-  background: rgb(179, 179, 26) !important;
+  background: rgb(179, 179, 26);
   color: white;
   border: rgb(179, 179, 26) solid 2px;
 }
 .grey {
-  background: grey !important;
+  background: grey ;
+  color: white;
+}
+.teclado .grey {
+  background: grey ;
   color: white;
 }
 .instrucciones {
@@ -110,13 +125,8 @@ h1{
   background: green;
   font-size: 3rem;
 } */
-.mensajeError{
-  background: black;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 20px;
-  border-radius: 10%;
+.container h1{
+  text-align: center;
 }
 .cuadroError{
   display: flex;
