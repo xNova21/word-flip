@@ -3,9 +3,8 @@ import './App.css';
 import "./micss.css"
 import Home from "./components/Home.js"
 import { Routes, Route } from "react-router-dom";
-
 function App() {
-  return (<div>
+return (<div>
     <Routes>
       <Route path="/" element={<Home/>}/>
     </Routes>

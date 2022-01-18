@@ -10836,6 +10836,4 @@ let palabras = [
     "ñutas",
     "ñutos",
     "ñuzco"];
- 
-
 export default palabras

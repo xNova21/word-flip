@@ -1,7 +1,34 @@
 import { React, useState, useEffect } from "react";
 import palabras from "./Palabras";
 import Instrucciones from "./Instrucciones";
+import Cargando from "./Cargando";
+import axios from "axios";
 const Home = () => {
+  let palabraBuena;
+  let [palabra, setPalabra] = useState()
+  let [cargando, setCargando] = useState(true)
+  let palabrasbuenas = async()=>{
+    setCargando(true)
+
+    try {
+      palabraBuena = await axios.get(`https://dbwordle.herokuapp.com${process.env.REACT_APP_ENDPOINT}`);
+      palabraBuena = palabraBuena.data.lista
+      setPalabra(palabraBuena[Math.floor(Math.random() * 2576)])
+      setCargando(false)
+      console.log(palabraBuena)
+    } catch (error) {
+      setPalabra(palabras[Math.floor(Math.random() * 10000)])
+      setCargando(false)
+      ;
+    }
+  }
+  useEffect(()=>{
+    palabrasbuenas()
+  }, [])
+  let [mensajeError, setError] = useState({
+    mensaje: { uno: "", dos: "", tres: "", cuatro: "" },
+    color: "",
+  });
   let [acertar, setAcertar] = useState();
   let [mensaje, setMensaje] = useState({ mensaje: "", color: "" });
   let [colorTeclado, setTeclado] = useState({
@@ -33,10 +60,14 @@ const Home = () => {
     n: "",
     m: "",
   });
-  let [palabra, setPalabra] = useState(
-    palabras[Math.floor(Math.random() * 10836)]
-  );
-  let correcto = palabra.split("");
+  // let [palabra, setPalabra] = useState(
+  //   palabraBuena[Math.floor(Math.random() * 2576)]
+  // );
+  let correcto;
+  if(palabra){
+    correcto = palabra.split("")
+  }
+  ;
   let [x, setx] = useState([]);
   let [estado, setEstado] = useState({
     primerintento: false,
@@ -491,11 +522,36 @@ const Home = () => {
         }
         setx([]);
         setEstado({ ...estado, sextointento: true });
-      } else if (x.length === 5 && palabras.includes(x.join("")) === false) {
-        console.log("no existe la palabra");
-      } else {
-        console.log("no hay suficientes letras");
       }
+    } else if (x.length === 5 && palabras.includes(x.join("")) === false) {
+      setError({
+        mensaje: { uno: "Palabra", dos: "no", tres: "válida", cuatro: "" },
+        color: "waviy",
+      });
+      setTimeout(() => {
+        setError({
+          mensaje: { uno: "", dos: "", tres: "", cuatro: "" },
+          color: "",
+        });
+      }, 2000);
+      console.log("no existe la palabra");
+    } else {
+      setError({
+        mensaje: {
+          uno: "No ",
+          dos: "hay ",
+          tres: "suficientes ",
+          cuatro: "letras.",
+        },
+        color: "waviy",
+      });
+      setTimeout(() => {
+        setError({
+          mensaje: { uno: "", dos: "", tres: "", cuatro: "" },
+          color: "",
+        });
+      }, 2000);
+      console.log("no hay suficientes letras");
     }
   };
   useEffect(() => {
@@ -562,15 +618,12 @@ const Home = () => {
     });
     setAcertar();
     setMensaje({ mensaje: "", color: "" });
-    setPalabra(palabras[Math.floor(Math.random() * 10836)]);
-    console.log("new game");
+    setPalabra(palabraBuena[Math.floor(Math.random() * 2576)]);
   };
   return (
     <div>
-      {console.log(palabra)}
-
-      {acertar === true || acertar === false ? (
-        <div className="container ">
+      {cargando === true ? <Cargando/> : acertar === true || acertar === false ? (
+        <div className="container">
           <h1 className={mensaje.color}>{mensaje.mensaje}</h1>
           <button className="jugar" onClick={nuevaPartida}>
             Otra partida
@@ -582,6 +635,14 @@ const Home = () => {
             ?
           </button>
           <h1>WORDLE INFINITE (ES)</h1>
+          <div className={`cuadroError`}>
+            <div className={mensajeError.color}>
+              <span>{mensajeError.mensaje.uno}</span>{" "}
+              <span>{mensajeError.mensaje.dos}</span>{" "}
+              <span>{mensajeError.mensaje.tres}</span>{" "}
+              <span>{mensajeError.mensaje.cuatro}</span>
+            </div>
+          </div>
           <div className="grid">
             <div id="primero" className="rows">
               <div className={`cuadro ${color1[0]}`}>
