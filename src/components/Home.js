@@ -163,15 +163,18 @@ const Home = () => {
         color6[2] === color6[3] &&
         color6[3] === color6[4])
     ) {
-      
       setMensaje({ mensaje: "¡Correcto!", color: "correcto" });
-    }
-    else if (estado.sextointento === true && acertar !== true) {
-      setAcertar(false);
+      setTimeout(() => {
+        setAcertar(true);
+      }, 3000);
+    } else if (estado.sextointento === true && acertar !== true) {
       setMensaje({
         mensaje: `¡Lástima! La palabra correcta era ${palabra}.`,
         color: "fallo",
       });
+      setTimeout(() => {
+        setAcertar(true);
+      }, 3000);
     }
   };
   let enter = () => {
@@ -497,11 +500,6 @@ const Home = () => {
   };
   useEffect(() => {
     comprobar();
-   if(mensaje.mensaje === "¡Correcto"){
-    setTimeout(() => {
-      setAcertar(true)
-    }, 3000);
-   }
   }, [estado]);
   let [instruciones, setInstrucciones] = useState(true);
   let cerrarinst = () => {
