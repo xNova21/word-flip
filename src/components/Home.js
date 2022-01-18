@@ -15,7 +15,6 @@ const Home = () => {
       palabraBuena = palabraBuena.data.lista
       setPalabra(palabraBuena[Math.floor(Math.random() * 2576)])
       setCargando(false)
-      console.log(palabraBuena)
     } catch (error) {
       setPalabra(palabras[Math.floor(Math.random() * 10000)])
       setCargando(false)
