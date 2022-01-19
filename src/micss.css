@@ -76,10 +76,13 @@
     width: 100%;
   }
 .teclado button {
-  border: none;
+  border: white 1px solid;
   background: rgb(228, 216, 216);
   width: 10%;
   height: 50px;
+}
+.teclado .grande {
+  width: 15%;
 }
 }
 .red {
