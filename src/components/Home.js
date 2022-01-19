@@ -617,7 +617,7 @@ const Home = () => {
     });
     setAcertar();
     setMensaje({ mensaje: "", color: "" });
-    setPalabra(palabraBuena[Math.floor(Math.random() * 2576)]);
+    palabrasbuenas();
   };
   return (
     <div>
@@ -633,7 +633,7 @@ const Home = () => {
           <button onClick={abririnst} className="instrucciones">
             ?
           </button>
-          <h1>WORDLE INFINITE (ES)</h1>
+          <h1>WORDLU INFINITE (ES)</h1>
           <div className={`cuadroError`}>
             <div className={mensajeError.color}>
               <span>{mensajeError.mensaje.uno}</span>{" "}
