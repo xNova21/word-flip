@@ -15,12 +15,10 @@ const Home = () => {
       palabraBuena = palabraBuena.data.lista
       setPalabra(palabraBuena[Math.floor(Math.random() * 2576)])
       setCargando(false)
-      console.log("normal")
     } catch (error) {
       setPalabra(palabras[Math.floor(Math.random() * 10000)])
       setCargando(false)
       ;
-      console.log("difícil")
     }
   }
   useEffect(()=>{
@@ -535,7 +533,6 @@ const Home = () => {
           color: "",
         });
       }, 2000);
-      console.log("no existe la palabra");
     } else {
       setError({
         mensaje: {
@@ -552,7 +549,6 @@ const Home = () => {
           color: "",
         });
       }, 2000);
-      console.log("no hay suficientes letras");
     }
   };
   useEffect(() => {
@@ -625,6 +621,7 @@ const Home = () => {
     <div>
       {cargando === true ? <Cargando/> : acertar === true || acertar === false ? (
         <div className="container">
+          <h1>WORDLU INFINITE (ES)</h1>
           <h1 className={mensaje.color}>{mensaje.mensaje}</h1>
           <button className="jugar" onClick={nuevaPartida}>
             Otra partida
