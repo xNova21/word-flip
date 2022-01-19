@@ -629,6 +629,110 @@ const Home = () => {
           <button className="jugar" onClick={nuevaPartida}>
             Otra partida
           </button>
+          <div className="grid">
+            <div id="primero" className="rows">
+              <div className={`cuadro ${color1[0]}`}>
+                {intentos.primerintento[0]}
+              </div>
+              <div className={`cuadro ${color1[1]}`}>
+                {intentos.primerintento[1]}
+              </div>
+              <div className={`cuadro ${color1[2]}`}>
+                {intentos.primerintento[2]}
+              </div>
+              <div className={`cuadro ${color1[3]}`}>
+                {intentos.primerintento[3]}
+              </div>
+              <div className={`cuadro ${color1[4]}`}>
+                {intentos.primerintento[4]}
+              </div>
+            </div>
+            <div id="segundo" className="rows">
+              <div className={`cuadro ${color2[0]}`}>
+                {intentos.segundointento[0]}
+              </div>
+              <div className={`cuadro ${color2[1]}`}>
+                {intentos.segundointento[1]}
+              </div>
+              <div className={`cuadro ${color2[2]}`}>
+                {intentos.segundointento[2]}
+              </div>
+              <div className={`cuadro ${color2[3]}`}>
+                {intentos.segundointento[3]}
+              </div>
+              <div className={`cuadro ${color2[4]}`}>
+                {intentos.segundointento[4]}
+              </div>
+            </div>
+            <div id="tercero" className="rows">
+              <div className={`cuadro ${color3[0]}`}>
+                {intentos.tercerintento[0]}
+              </div>
+              <div className={`cuadro ${color3[1]}`}>
+                {intentos.tercerintento[1]}
+              </div>{" "}
+              <div className={`cuadro ${color3[2]}`}>
+                {intentos.tercerintento[2]}
+              </div>
+              <div className={`cuadro ${color3[3]}`}>
+                {intentos.tercerintento[3]}
+              </div>
+              <div className={`cuadro ${color3[4]}`}>
+                {intentos.tercerintento[4]}
+              </div>
+            </div>
+            <div id="cuarto" className="rows">
+              <div className={`cuadro ${color4[0]}`}>
+                {intentos.cuartointento[0]}
+              </div>
+              <div className={`cuadro ${color4[1]}`}>
+                {intentos.cuartointento[1]}
+              </div>
+              <div className={`cuadro ${color4[2]}`}>
+                {intentos.cuartointento[2]}
+              </div>
+              <div className={`cuadro ${color4[3]}`}>
+                {intentos.cuartointento[3]}
+              </div>
+              <div className={`cuadro ${color4[4]}`}>
+                {intentos.cuartointento[4]}
+              </div>
+            </div>
+            <div id="quinto" className="rows">
+              <div className={`cuadro ${color5[0]}`}>
+                {intentos.quintointento[0]}
+              </div>
+              <div className={`cuadro ${color5[1]}`}>
+                {intentos.quintointento[1]}
+              </div>
+              <div className={`cuadro ${color5[2]}`}>
+                {intentos.quintointento[2]}
+              </div>
+              <div className={`cuadro ${color5[3]}`}>
+                {intentos.quintointento[3]}
+              </div>
+              <div className={`cuadro ${color5[4]}`}>
+                {intentos.quintointento[4]}
+              </div>
+            </div>
+            <div id="sexto" className="rows">
+              <div className={`cuadro ${color6[0]}`}>
+                {intentos.sextointento[0]}
+              </div>
+              <div className={`cuadro ${color6[1]}`}>
+                {intentos.sextointento[1]}
+              </div>
+              <div className={`cuadro ${color6[2]}`}>
+                {intentos.sextointento[2]}
+              </div>
+              <div className={`cuadro ${color6[3]}`}>
+                {intentos.sextointento[3]}
+              </div>
+              <div className={`cuadro ${color6[4]}`}>
+                {intentos.sextointento[4]}
+              </div>
+            </div>
+          </div>
         </div>
       ) : instruciones === false ? (
         <div className="container">
