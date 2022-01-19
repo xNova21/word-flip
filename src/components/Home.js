@@ -11,7 +11,7 @@ const Home = () => {
     setCargando(true)
 
     try {
-      palabraBuena = await axios.get(`https://dbwordle.herokuapp.com${process.env.REACT_APP_ENDPOINT}`);
+      palabraBuena = await axios.get(`${process.env.REACT_APP_ENDPOINT}`);
       palabraBuena = palabraBuena.data.lista
       setPalabra(palabraBuena[Math.floor(Math.random() * 2576)])
       setCargando(false)
