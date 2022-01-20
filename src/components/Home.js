@@ -5,25 +5,25 @@ import Cargando from "./Cargando";
 import axios from "axios";
 const Home = () => {
   let palabraBuena;
-  let [palabra, setPalabra] = useState()
-  let [cargando, setCargando] = useState(true)
-  let palabrasbuenas = async()=>{
-    setCargando(true)
+  let [palabra, setPalabra] = useState();
+  let [cargando, setCargando] = useState(true);
+  let palabrasbuenas = async () => {
+    setCargando(true);
 
     try {
       palabraBuena = await axios.get(`${process.env.REACT_APP_ENDPOINT}`);
-      palabraBuena = palabraBuena.data.lista
-      setPalabra(palabraBuena[Math.floor(Math.random() * 2576)])
-      setCargando(false)
+      palabraBuena = palabraBuena.data.lista;
+      setPalabra(palabraBuena[Math.floor(Math.random() * 2576)]);
+      setCargando(false);
     } catch (error) {
-      setPalabra(palabras[Math.floor(Math.random() * 10000)])
-      setCargando(false)
-      ;
+      setPalabra(palabras[Math.floor(Math.random() * 10000)]);
+      console.log("dificil");
+      setCargando(false);
     }
-  }
-  useEffect(()=>{
-    palabrasbuenas()
-  }, [])
+  };
+  useEffect(() => {
+    palabrasbuenas();
+  }, []);
   let [mensajeError, setError] = useState({
     mensaje: { uno: "", dos: "", tres: "", cuatro: "" },
     color: "",
@@ -63,10 +63,9 @@ const Home = () => {
   //   palabraBuena[Math.floor(Math.random() * 2576)]
   // );
   let correcto;
-  if(palabra){
-    correcto = palabra.split("")
+  if (palabra) {
+    correcto = palabra.split("");
   }
-  ;
   let [x, setx] = useState([]);
   let [estado, setEstado] = useState({
     primerintento: false,
@@ -619,7 +618,9 @@ const Home = () => {
   };
   return (
     <div>
-      {cargando === true ? <Cargando/> : acertar === true || acertar === false ? (
+      {cargando === true ? (
+        <Cargando />
+      ) : acertar === true || acertar === false ? (
         <div className="container">
           <h1>WORDLU INFINITE (ES)</h1>
           <h1 className={mensaje.color}>{mensaje.mensaje}</h1>
