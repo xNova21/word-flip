@@ -20,7 +20,6 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* no sçe si flex sirve para algo */
   flex: 1 1 auto;
   margin-top: 20px;
 }
@@ -124,12 +123,10 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: column; */
 }
 p{
   font-size: 1rem !important;
   text-transform: none !important;
-  /* margin: 10px */
 
 }
 .jugar{
@@ -139,11 +136,6 @@ p{
   padding: 10px;
 }
 
-/* .correcto{
-  position: absolute ;
-  background: green;
-  font-size: 3rem;
-} */
 .container h1{
   border-bottom: grey solid 5px;
   margin-bottom: 10px;
