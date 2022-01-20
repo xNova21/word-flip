@@ -1,3 +1,6 @@
+body{
+  background: white;
+}
 .flip-enter,
 .flip-leave {
   transform: rotateY(360deg);
