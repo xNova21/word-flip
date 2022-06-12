@@ -176,7 +176,11 @@ p{
 }
 .maxWidth{
   max-width: 300px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
 }
 .text-center{
   text-align: center;
+  font-weight: bold;
 }
