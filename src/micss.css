@@ -174,3 +174,9 @@ p{
     transform: translateY(-20px)
   }
 }
+.maxWidth{
+  max-width: 300px;
+}
+.text-center{
+  text-align: center;
+}
