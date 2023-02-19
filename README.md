@@ -2,7 +2,7 @@
 
 ## This project is deployed at
 
-[Heroku](https://wordluinfinite.herokuapp.com/ "Heroku")
+[Vercel](https://wordlu.vercel.app/)
 
 ## About this project
 
@@ -35,7 +35,7 @@ Locally Wordlu will get a word from list of all valid words.
 If you want to get words from less options you can create a Database with an array with your list and add the followind variables in a .env file.
 Also should change the max number from Math.random at setPalabraBuena in Home component.
 
-- ` DB_User` Username of Database
+- `DB_User` Username of Database
 - `DB_NAME` Name of Database
 - `DB_PASSWORD` Password of Database
 - `SALT` Number for BCrypt
